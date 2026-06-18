@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUPG - Random User Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-menu">
+      <button id="generate-btn">Generate User</button>
+
+      <div class="action-buttons-area">
+        <button id="save-btn">Save User Page</button>
+        <button id="load-btn">Load User Page</button>
+        <select id="saved-users-dropdown">
+          <option value="" disabled selected>Select a saved user...</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="profile-container">
+      <div class="user-info-container"></div>
+
+      <div class="quote-container"></div>
+
+      <div class="pokemon-container"></div>
+
+      <div class="about-container"></div>
+
+      <div class="friends-container"></div>
+    </div>
+
+    <script src="js/APIManager.js"></script>
+    <script src="js/Model.js"></script>
+    <script src="js/Renderer.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

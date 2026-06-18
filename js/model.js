@@ -59,6 +59,6 @@ class Model {
   }
 
   getSavedUserByName(name) {
-    return this.savedUsers.find((u) => u.mainUser.name === name) || null;
+    return this.savedUsers.find((u) => u.user.name === name) || null;
   }
 }

@@ -67,9 +67,9 @@ class Renderer {
     dropdown.innerHTML =
       '<option value="" disabled selected>Select a saved user...</option>';
 
-    savedUsers.forEach((user) => {
-      if (user.mainUser) {
-        dropdown.innerHTML += `<option value="${user.mainUser.name}">${user.mainUser.name}</option>`;
+    savedUsers.forEach((userState) => {
+      if (userState.user) {
+        dropdown.innerHTML += `<option value="${userState.user.name}">${userState.user.name}</option>`;
       }
     });
   }

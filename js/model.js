@@ -1,10 +1,14 @@
 class Model {
+  constructor() {
+    this.state = {};
+  }
+
   cleanData(rawData) {
     const allUsers = rawData.users || [];
 
-    const currentState = {
-      user: this._formatMainUser(allUsers[0]),
-      friends: this._formatFriends(allUsers.slice(1)),
+    this.state = {
+      user: this._MainUser(allUsers[0]),
+      friends: this._Friends(allUsers.slice(1)),
       quote: rawData.quote || "No quote available",
       pokemon: rawData.pokemon
         ? {
@@ -15,10 +19,10 @@ class Model {
       meatText: rawData.meatText || "No text available",
     };
 
-    return state;
+    return this.state;
   }
 
-  _formatMainUser(user) {
+  _MainUser(user) {
     if (!user) return null;
     return {
       name: `${user.name.first} ${user.name.last}`,
@@ -29,9 +33,19 @@ class Model {
     };
   }
 
-  _formatFriends(users) {
+  _Friends(users) {
     return users.map((user) => ({
       name: `${user.name.first} ${user.name.last}`,
     }));
+  }
+
+  saveState() {
+    localStorage.setItem("appState", JSON.stringify(this.state));
+  }
+
+  loadState() {
+    const saved = localStorage.getItem("appState");
+    if (saved) this.state = JSON.parse(saved);
+    return this.state;
   }
 }

@@ -1,6 +1,7 @@
 class Model {
   constructor() {
     this.state = {};
+    this.savedUsers = this.loadAllFromLocalStorage() || [];
   }
 
   cleanData(rawData) {
@@ -39,13 +40,25 @@ class Model {
     }));
   }
 
-  saveState() {
-    localStorage.setItem("appState", JSON.stringify(this.state));
+  saveToLocalStorage() {
+    if (!this.state.user) return;
+
+    const exists = this.savedUsers.some(
+      (u) => u.user.name === this.state.user.name,
+    );
+
+    if (!exists) {
+      this.savedUsers.push(this.state);
+      localStorage.setItem("allSavedUsers", JSON.stringify(this.savedUsers));
+    }
   }
 
-  loadState() {
-    const saved = localStorage.getItem("appState");
-    if (saved) this.state = JSON.parse(saved);
-    return this.state;
+  loadAllFromLocalStorage() {
+    const saved = localStorage.getItem("allSavedUsers");
+    return saved ? JSON.parse(saved) : [];
+  }
+
+  getSavedUserByName(name) {
+    return this.savedUsers.find((u) => u.mainUser.name === name) || null;
   }
 }

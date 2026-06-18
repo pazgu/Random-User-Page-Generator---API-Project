@@ -1,0 +1,142 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+button,
+select {
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#save-btn {
+  background-color: #28a745;
+}
+
+#save-btn:hover {
+  background-color: #218838;
+}
+
+select {
+  background-color: white;
+  min-width: 180px;
+}
+
+#profile-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-info-container,
+.quote-container,
+.pokemon-container,
+.about-container,
+.friends-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+}
+
+.user-profile h2 {
+  margin: 0 0 5px 0;
+}
+
+.user-profile p {
+  margin: 0;
+  color: #666;
+}
+
+.quote-card {
+  font-style: italic;
+  font-size: 16px;
+  color: #555;
+  border-left: 4px solid #007bff;
+  padding-left: 15px;
+}
+
+.pokemon-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pokemon-card h3 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.pokemon-card img {
+  width: 60px;
+  height: 60px;
+}
+
+.friend-card {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.friend-card:last-child {
+  border-bottom: none;
+}
+
+.error-message {
+  border: 1px solid #dc3545;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}

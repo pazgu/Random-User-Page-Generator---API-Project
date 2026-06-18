@@ -61,6 +61,19 @@ class Renderer {
     }
   }
 
+  renderDropdown(savedUsers) {
+    const dropdown = document.querySelector("#saved-users-dropdown");
+
+    dropdown.innerHTML =
+      '<option value="" disabled selected>Select a saved user...</option>';
+
+    savedUsers.forEach((user) => {
+      if (user.mainUser) {
+        dropdown.innerHTML += `<option value="${user.mainUser.name}">${user.mainUser.name}</option>`;
+      }
+    });
+  }
+
   renderError(message) {
     this._clearAll();
     const errorContainer = document.querySelector(".user-container");
